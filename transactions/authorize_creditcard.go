@@ -9,20 +9,20 @@ import (
 	"os"
 )
 
-func AuthorizeCreditCard() string {
+func AuthorizeCreditCard(OrderId string, Amount int16, CardNumber string, Holder string, ExpirationDate string, SecurityCode string, Brand string) string {
 	sale := models.Sale{
-		MerchantOrderId: "123",
+		MerchantOrderId: OrderId,
 		Payment: models.Payment{
 			Type:           "CreditCard",
-			Amount:         15700,
+			Amount:         Amount,
 			Installments:   1,
 			SoftDescriptor: "123456789ABCD",
 			CreditCard: models.CreditCard{
-				CardNumber:     "4551870000000181",
-				Holder:         "Teste Holder",
-				ExpirationDate: "12/2021",
-				SecurityCode:   "123",
-				Brand:          "Visa",
+				CardNumber:     CardNumber,
+				Holder:         Holder,
+				ExpirationDate: ExpirationDate,
+				SecurityCode:   SecurityCode,
+				Brand:          Brand,
 			},
 		},
 	}
